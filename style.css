@@ -44,7 +44,7 @@ nav a:hover { text-decoration: underline; }
 
 /* Hero Section */
 .hero {
-  background: url('/images/bg1.jpg') no-repeat center/cover;
+  background: url( 'bg1.jpg') no-repeat center/cover;
   height: 60vh;
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
@@ -279,3 +279,4 @@ footer .socials a:hover { color: #ffcc00; }
     margin-top: 10px;
   }
 }
+
