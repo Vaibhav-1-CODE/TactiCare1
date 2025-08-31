@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>First Aid Information</title>
+  <link rel="stylesheet" href="f.css">
+  <script>
+    // Toggle collapse/expand for cards
+    function toggleCard(id) {
+      const content = document.getElementById(id);
+      content.classList.toggle("show");
+    }
+
+    // Search filter
+    function searchFirstAid() {
+      let input = document.getElementById("searchBar").value.toLowerCase();
+      let cards = document.getElementsByClassName("card");
+      
+      for (let card of cards) {
+        let title = card.getElementsByTagName("h3")[0].innerText.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      }
+    }
+
+    // Print manual
+    function printManual() {
+      window.print();
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>First Aid Guides</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medicine.html">Search Medicine</a>
+      <a href="firstaid.html">First Aid</a>
+      <a href="store.html">Medicine Store</a>
+      <a href="doctors.html">Doctors</a>
+    </nav>
+  </header>
+
+  <!-- Search and Print -->
+  <section class="tools">
+    <input type="text" id="searchBar" onkeyup="searchFirstAid()" placeholder="🔍 Search First Aid...">
+    <button onclick="printManual()">🖨️ Print / Save PDF</button>
+  </section>
+
+  <section>
+    <h2>Basic First Aid Tips</h2>
+
+    <!-- Snake Bite -->
+    <div class="card" onclick="toggleCard('snakeContent')">
+      <div class="icon">🐍</div>
+      <h3>Snake Bite</h3>
+      <div class="content" id="snakeContent">
+        <ul>
+          <li>Keep patient calm and still.</li>
+          <li>Do not cut or suck the wound.</li>
+          <li>Immobilize the bitten limb.</li>
+          <li>Tie a cloth above the bite (not too tight).</li>
+          <li>Do not give alcohol or caffeine.</li>
+          <li>Rush to hospital immediately.</li>
+        </ul>
+        <p><b>Medicine:</b> Paracetamol for pain (avoid aspirin). Antivenom only at hospital.</p>
+      </div>
+    </div>
+
+    <!-- Burns -->
+    <div class="card" onclick="toggleCard('burnsContent')">
+      <div class="icon">🔥</div>
+      <h3>Burns</h3>
+      <div class="content" id="burnsContent">
+        <ul>
+          <li>Cool burn with clean water (not ice).</li>
+          <li>Remove tight objects like rings.</li>
+          <li>Cover with clean cloth/gauze.</li>
+          <li>Do not apply butter, oil, or toothpaste.</li>
+          <li>Keep patient hydrated.</li>
+          <li>Seek medical help if severe.</li>
+        </ul>
+        <p><b>Medicine:</b> Apply burn ointment (Silver Sulfadiazine), paracetamol for pain.</p>
+      </div>
+    </div>
+
+    <!-- Heart Attack -->
+    <div class="card" onclick="toggleCard('heartContent')">
+      <div class="icon">❤️</div>
+      <h3>Heart Attack</h3>
+      <div class="content" id="heartContent">
+        <ul>
+          <li>Call emergency services immediately.</li>
+          <li>Keep patient calm and seated upright.</li>
+          <li>Loosen tight clothes.</li>
+          <li>Monitor pulse and breathing.</li>
+          <li>Perform CPR if unresponsive.</li>
+          <li>Rush to hospital urgently.</li>
+        </ul>
+        <p><b>Medicine:</b> Give aspirin (150–300 mg) to chew, if not allergic.</p>
+      </div>
+    </div>
+
+    <!-- CPR -->
+    <div class="card" onclick="toggleCard('cprContent')">
+      <div class="icon">🫀</div>
+      <h3>CPR (Cardiopulmonary Resuscitation)</h3>
+      <div class="content" id="cprContent">
+        <ul>
+          <li>Check responsiveness and breathing.</li>
+          <li>Call emergency services.</li>
+          <li>Place heel of your hand on chest center, interlock fingers.</li>
+          <li>Give 30 chest compressions (depth ~5 cm, rate 100–120/min).</li>
+          <li>Give 2 rescue breaths if trained.</li>
+          <li>Continue until help arrives or patient responds.</li>
+        </ul>
+        <p><b>Note:</b> Hands-only CPR (compressions only) is better than doing nothing.</p>
+      </div>
+    </div>
+
+    <!-- Choking -->
+    <div class="card" onclick="toggleCard('chokingContent')">
+      <div class="icon">🤐</div>
+      <h3>Choking</h3>
+      <div class="content" id="chokingContent">
+        <ul>
+          <li>Ask patient to cough strongly.</li>
+          <li>If unable to breathe, perform Heimlich maneuver (abdominal thrusts).</li>
+          <li>For infants: 5 back blows + 5 chest thrusts.</li>
+          <li>If patient becomes unconscious, start CPR.</li>
+        </ul>
+        <p><b>Note:</b> Do not attempt blind finger sweeps in the mouth.</p>
+      </div>
+    </div>
+
+    <!-- Fracture -->
+    <div class="card" onclick="toggleCard('fractureContent')">
+      <div class="icon">🦴</div>
+      <h3>Fracture</h3>
+      <div class="content" id="fractureContent">
+        <ul>
+          <li>Immobilize the injured part with splints.</li>
+          <li>Do not try to straighten the bone.</li>
+          <li>Apply ice packs to reduce swelling.</li>
+          <li>Control bleeding with clean cloth if open fracture.</li>
+          <li>Take patient to hospital immediately.</li>
+        </ul>
+        <p><b>Medicine:</b> Paracetamol/Ibuprofen for pain relief (if not allergic).</p>
+      </div>
+    </div>
+
+    <!-- Nosebleed -->
+    <div class="card" onclick="toggleCard('nosebleedContent')">
+      <div class="icon">👃</div>
+      <h3>Nosebleed</h3>
+      <div class="content" id="nosebleedContent">
+        <ul>
+          <li>Sit patient upright and lean slightly forward.</li>
+          <li>Pinch soft part of nose for 10–15 minutes.</li>
+          <li>Apply cold compress on nose/forehead.</li>
+          <li>Do not tilt head backward (causes blood swallowing).</li>
+          <li>Seek medical care if bleeding lasts >20 minutes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Poisoning -->
+    <div class="card" onclick="toggleCard('poisonContent')">
+      <div class="icon">☠️</div>
+      <h3>Poisoning</h3>
+      <div class="content" id="poisonContent">
+        <ul>
+          <li>Identify the poison (medicine, chemical, food, gas).</li>
+          <li>Call emergency services immediately.</li>
+          <li>Do not induce vomiting unless advised by doctor.</li>
+          <li>Keep patient’s airway clear, check breathing.</li>
+          <li>Give activated charcoal only if instructed by medical personnel.</li>
+        </ul>
+        <p><b>Note:</b> Always carry the poison container/label to the hospital.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© TactiCare 2025</p>
+  </footer>
+</body>
+</html>
